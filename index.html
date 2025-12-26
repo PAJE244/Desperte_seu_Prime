@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desperte Seu Prime</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS Personalizado -->
+    <style>
+        :root {
+            --background: #0a0a0a;
+            --foreground: #ffffff;
+            --primary: #f97316;
+            --primary-foreground: #ffffff;
+            --card: #1a1a1a;
+            --muted: #666666;
+            --success: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--foreground);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #f97316, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary {
+            background-color: #f97316;
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background-color: #ea580c;
+        }
+
+        .btn-success {
+            background-color: #10b981;
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-success:hover {
+            transform: scale(1.05);
+            background-color: #059669;
+        }
+
+        .section-padding {
+            padding: 4rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 6rem 1rem;
+            }
+        }
+
+        .container-tight {
+            max-width: 72rem;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .glass {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .animate-pulse-glow {
+            animation: pulseGlow 2s infinite;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.8); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(3deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+        }
+
+        .bg-hero-gradient {
+            background: radial-gradient(ellipse at top, rgba(249, 115, 22, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom right, rgba(249, 115, 22, 0.1) 0%, transparent 40%),
+                        #0a0a0a;
+        }
+
+        .card-hover {
+            transition: all 0.3s;
+        }
+
+        .card-hover:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5">
+        <div class="container-tight flex items-center justify-between px-4">
+            <a href="#" class="text-2xl font-bold" style="font-family: 'Playfair Display', serif;">
+                Desperte <span class="text-orange-500">Seu Prime</span>
+            </a>
+            
+            <button id="mobileMenuButton" class="md:hidden p-2">
+                <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#beneficios" class="text-sm font-medium text-gray-400 hover:text-white transition-colors relative group">
+                    Benefícios
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#preview" class="text-sm font-medium text-gray-400 hover:text-white transition-colors relative group">
+                    Prévia Grátis
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#comprar" class="text-sm font-medium text-gray-400 hover:text-white transition-colors relative group">
+                    Comprar Agora
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden mt-2 mx-4 rounded-lg p-4 animate-fade-in glass">
+            <a href="#beneficios" class="block py-3 text-center font-medium hover:text-orange-500 transition-colors">
+                Benefícios
+            </a>
+            <a href="#preview" class="block py-3 text-center font-medium hover:text-orange-500 transition-colors">
+                Prévia Grátis
+            </a>
+            <a href="#comprar" class="block py-3 text-center font-medium hover:text-orange-500 transition-colors">
+                Comprar Agora
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-hero-gradient flex items-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-1/4 -left-32 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container-tight section-padding relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Scarcity Badge -->
+                <div class="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 rounded-full px-4 py-2 mb-8 animate-fade-in-up">
+                    <span class="text-sm font-medium">
+                        🔥 Oferta limitada — Últimas <span class="text-orange-500 font-bold">47</span> vagas
+                    </span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-in-up">
+                    Cansado de se sentir <span class="text-gradient">estagnado</span> e sem <span class="text-gradient">confiança</span>?
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-8 animate-fade-in-up">
+                    Descubra o método comprovado para desbloquear seu potencial máximo, desenvolver uma mentalidade inabalável e conquistar resultados extraordinários em todas as áreas da sua vida.
+                </p>
+
+                <!-- Countdown Timer -->
+                <div class="flex items-center justify-center gap-2 mb-8 animate-fade-in-up">
+                    <span class="text-gray-400">Oferta expira em:</span>
+                    <div class="flex gap-2">
+                        <div class="flex items-center">
+                            <span class="bg-orange-500/20 text-orange-500 font-bold px-3 py-1 rounded" id="hours">23</span>
+                            <span class="text-gray-400 ml-1">h</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="bg-orange-500/20 text-orange-500 font-bold px-3 py-1 rounded" id="minutes">59</span>
+                            <span class="text-gray-400 ml-1">m</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="bg-orange-500/20 text-orange-500 font-bold px-3 py-1 rounded" id="seconds">59</span>
+                            <span class="text-gray-400 ml-1">s</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="animate-fade-in-up">
+                    <a href="https://pay.kirvano.com/349f28d0-a6e7-49d5-bddd-1a0bb7edda44" target="_blank" class="btn-primary animate-pulse-glow">
+                        QUERO TRANSFORMAR MINHA VIDA
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <p class="mt-4 text-sm text-gray-400">
+                        💳 Pagamento 100% seguro • Acesso imediato
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-12 bg-gray-800/50 border-y border-gray-700">
+        <div class="container-tight px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-3">5000+</div>
+                    <p class="text-gray-400 mt-2">Pessoas Transformadas</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-3">4.9</div>
+                    <p class="text-gray-400 mt-2">Avaliação Média</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-3">97%</div>
+                    <p class="text-gray-400 mt-2">Taxa de Satisfação</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="section-padding bg-gray-900">
+        <div class="container-tight">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                    O Que Você Vai <span class="text-gradient">Conquistar</span>
+                </h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    Cada capítulo foi desenvolvido para desbloquear uma nova dimensão do seu potencial
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Benefit 1 -->
+                <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-orange-500 card-hover animate-scale-in">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                            <span class="text-orange-500">🧠</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Mindset de Alta Performance</h3>
+                            <p class="text-gray-400">Reprograme sua mente para pensar como pessoas extraordinárias e elimine crenças limitantes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-orange-500 card-hover animate-scale-in" style="animation-delay: 0.1s;">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                            <span class="text-orange-500">🎯</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Foco Inabalável</h3>
+                            <p class="text-gray-400">Desenvolva concentração de laser para alcançar seus objetivos com precisão e velocidade.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-orange-500 card-hover animate-scale-in" style="animation-delay: 0.2s;">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                            <span class="text-orange-500">⚡</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Energia e Motivação</h3>
+                            <p class="text-gray-400">Acorde todos os dias com propósito e mantenha seu nível de energia no máximo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-orange-500 card-hover animate-scale-in" style="animation-delay: 0.3s;">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                            <span class="text-orange-500">🛡️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Resiliência Mental</h3>
+                            <p class="text-gray-400">Transforme obstáculos em oportunidades e nunca mais se deixe abater por dificuldades.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-orange-500 card-hover animate-scale-in" style="animation-delay: 0.4s;">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                            <span class="text-orange-500">📈</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Resultados Exponenciais</h3>
+                            <p class="text-gray-400">Multiplique seus resultados em todas as áreas: carreira, finanças e relacionamentos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 6 -->
+                <div class="bg-gray-800 rounded-xl p-6 border-l-4 border-orange-500 card-hover animate-scale-in" style="animation-delay: 0.5s;">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                            <span class="text-orange-500">❤️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Autoconfiança Genuína</h3>
+                            <p class="text-gray-400">Construa uma autoestima sólida baseada em conquistas reais e autoconhecimento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding bg-gray-900">
+        <div class="container-tight">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        Conheça o <span class="text-gradient">Criador</span>
+                    </h2>
+                    <p class="text-lg text-gray-400 mb-6">
+                        Há mais de uma década, me dedico a estudar a mente humana e os padrões que separam pessoas comuns de indivíduos extraordinários. Depois de ajudar milhares de pessoas a transformarem suas vidas, compilei todo esse conhecimento neste ebook.
+                    </p>
+                    <p class="text-lg text-gray-400 mb-8">
+                        Minha missão é democratizar o acesso às ferramentas de transformação mental que antes estavam reservadas apenas para a elite. Este material é o resultado de anos de pesquisa, testes e refinamento com pessoas reais.
+                    </p>
+
+                    <!-- Credentials -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <span class="text-orange-500">📚</span>
+                            </div>
+                            <span class="text-white">10+ anos de estudo em psicologia e neurociência</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <span class="text-orange-500">👥</span>
+                            </div>
+                            <span class="text-white">Mais de 5.000 pessoas impactadas</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <span class="text-orange-500">🏆</span>
+                            </div>
+                            <span class="text-white">Especialista em Alta Performance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avatar -->
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-orange-500/20 to-orange-500/5 flex items-center justify-center border-4 border-orange-500/20">
+                            <div class="w-56 h-56 md:w-72 md:h-72 rounded-full bg-gray-800 flex items-center justify-center">
+                                <span class="text-6xl md:text-8xl font-bold text-orange-500">DP</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                            Autor & Mentor
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section id="preview" class="section-padding bg-gradient-to-b from-gray-900 to-gray-800/30">
+        <div class="container-tight">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Mockup -->
+                <div class="flex justify-center">
+                    <div class="relative animate-float">
+                        <div class="w-48 md:w-64 h-64 md:h-80 bg-gradient-to-br from-orange-500 to-red-700 rounded-lg shadow-2xl shadow-orange-500/30 flex items-center justify-center transform rotate-3">
+                            <div class="text-center text-white p-6">
+                                <span class="text-5xl mb-4">📖</span>
+                                <p class="text-sm font-semibold uppercase tracking-wider mb-2">Prévia Grátis</p>
+                                <p class="text-xl font-bold">Desperte Seu Prime</p>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-green-600 rounded-full flex items-center justify-center shadow-lg">
+                            <span class="text-white font-bold text-sm">GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        Experimente <span class="text-gradient">Grátis</span>
+                    </h2>
+                    <p class="text-lg text-gray-400 mb-8">
+                        Antes de decidir, baixe gratuitamente a prévia do ebook e descubra por que milhares de pessoas estão transformando suas vidas com este conteúdo.
+                    </p>
+
+                    <!-- Checklist -->
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-orange-500">✓</span>
+                            </div>
+                            <span class="text-white">Introdução completa ao método</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-orange-500">✓</span>
+                            </div>
+                            <span class="text-white">Primeiro capítulo: Fundamentos da Mentalidade</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-orange-500">✓</span>
+                            </div>
+                            <span class="text-white">Exercício prático de autoconhecimento</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-orange-500">✓</span>
+                            </div>
+                            <span class="text-white">Checklist de autoavaliação</span>
+                        </li>
+                    </ul>
+
+                    <!-- Download Button -->
+                    <a href="https://drive.google.com/file/d/1G1q8pU6-Tb5ESKmpSlfeVOMFbesSh3WQ/view?usp=drivesdk" target="_blank" class="btn-success">
+                        <span>⬇️</span>
+                        BAIXAR PRÉVIA GRÁTIS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="comprar" class="section-padding bg-gray-900 relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container-tight relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                    Invista na Sua <span class="text-gradient">Transformação</span>
+                </h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    Por menos do que um café por dia, você terá acesso ao método completo
+                </p>
+            </div>
+
+            <!-- Pricing Card -->
+            <div class="max-w-lg mx-auto">
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden shadow-xl shadow-orange-500/10">
+                    <!-- Header -->
+                    <div class="bg-orange-500 p-6 text-center">
+                        <p class="text-white/80 text-sm uppercase tracking-wider mb-2">Oferta Especial</p>
+                        <div class="flex items-center justify-center gap-2">
+                            <span class="text-white/60 line-through text-xl">R$ 97,00</span>
+                        </div>
+                        <div class="flex items-baseline justify-center mt-2">
+                            <span class="text-white text-2xl">R$</span>
+                            <span class="text-white text-6xl font-bold">9</span>
+                            <span class="text-white text-2xl">,90</span>
+                        </div>
+                        <p class="text-white/80 text-sm mt-2">ou 12x de R$ 0,99</p>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6 md:p-8">
+                        <!-- Included -->
+                        <p class="font-semibold mb-4">O que está incluso:</p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start gap-3">
+                                <span class="text-orange-500 mt-0.5">✓</span>
+                                <span class="text-gray-400">Ebook completo "Desperte Seu Prime" (150+ páginas)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-orange-500 mt-0.5">✓</span>
+                                <span class="text-gray-400">Exercícios práticos de transformação mental</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-orange-500 mt-0.5">✓</span>
+                                <span class="text-gray-400">Planilhas de acompanhamento de progresso</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-orange-500 mt-0.5">✓</span>
+                                <span class="text-gray-400">Acesso vitalício ao conteúdo</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-orange-500 mt-0.5">✓</span>
+                                <span class="text-gray-400">Atualizações gratuitas</span>
+                            </li>
+                        </ul>
+
+                        <!-- Bonuses -->
+                        <div class="bg-green-600/10 border border-green-600/20 rounded-lg p-4 mb-6">
+                            <p class="font-semibold text-green-500 mb-3">🎁 Bônus Exclusivos:</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 text-sm">
+                                    <span class="text-green-500 mt-0.5">✓</span>
+                                    <span class="text-white">BÔNUS: Meditações guiadas em áudio</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm">
+                                    <span class="text-green-500 mt-0.5">✓</span>
+                                    <span class="text-white">BÔNUS: Grupo exclusivo de apoio</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm">
+                                    <span class="text-green-500 mt-0.5">✓</span>
+                                    <span class="text-white">BÔNUS: Resumo executivo para consulta rápida</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Guarantee -->
+                        <div class="flex items-center gap-4 bg-gray-700/50 rounded-lg p-4 mb-6">
+                            <span class="text-orange-500 text-3xl">🛡️</span>
+                            <div>
+                                <p class="font-semibold">Garantia de 30 dias</p>
+                                <p class="text-sm text-gray-400">Se não ficar satisfeito, devolvemos 100% do seu dinheiro</p>
+                            </div>
+                        </div>
+
+                        <!-- CTA -->
+                        <a href="https://pay.kirvano.com/349f28d0-a6e7-49d5-bddd-1a0bb7edda44" target="_blank" class="btn-primary w-full flex items-center justify-center gap-2 text-lg animate-pulse-glow">
+                            GARANTIR MINHA VAGA
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+
+                        <!-- Trust badges -->
+                        <div class="flex items-center justify-center gap-4 mt-6 text-gray-400">
+                            <div class="flex items-center gap-1 text-sm">
+                                <span>🔒</span>
+                                <span>Seguro</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-sm">
+                                <span>💳</span>
+                                <span>Cartão, Pix, Boleto</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding bg-gray-800/30">
+        <div class="container-tight">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                    Perguntas <span class="text-gradient">Frequentes</span>
+                </h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    Tire suas dúvidas antes de começar sua transformação
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-gray-800 rounded-lg border border-gray-700 px-6 py-4">
+                    <button class="faq-question w-full text-left font-semibold hover:text-orange-500 flex justify-between items-center">
+                        <span>Em quanto tempo verei resultados?</span>
+                        <span class="text-orange-500">+</span>
+                    </button>
+                    <div class="faq-answer text-gray-400 mt-2 hidden">
+                        Muitos leitores relatam mudanças perceptíveis já nos primeiros 7 dias de aplicação das técnicas. No entanto, para uma transformação profunda e duradoura, recomendamos seguir o programa completo de 30 dias.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-gray-800 rounded-lg border border-gray-700 px-6 py-4">
+                    <button class="faq-question w-full text-left font-semibold hover:text-orange-500 flex justify-between items-center">
+                        <span>Preciso de algum conhecimento prévio?</span>
+                        <span class="text-orange-500">+</span>
+                    </button>
+                    <div class="faq-answer text-gray-400 mt-2 hidden">
+                        Não! O conteúdo foi desenvolvido para ser acessível a qualquer pessoa, independente de sua experiência prévia com desenvolvimento pessoal. Tudo é explicado de forma clara e prática.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-gray-800 rounded-lg border border-gray-700 px-6 py-4">
+                    <button class="faq-question w-full text-left font-semibold hover:text-orange-500 flex justify-between items-center">
+                        <span>Como vou receber o ebook?</span>
+                        <span class="text-orange-500">+</span>
+                    </button>
+                    <div class="faq-answer text-gray-400 mt-2 hidden">
+                        Imediatamente após a confirmação do pagamento, você receberá um email com o link para download. O acesso é instantâneo e você pode baixar quantas vezes quiser.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-gray-800 rounded-lg border border-gray-700 px-6 py-4">
+                    <button class="faq-question w-full text-left font-semibold hover:text-orange-500 flex justify-between items-center">
+                        <span>O pagamento é seguro?</span>
+                        <span class="text-orange-500">+</span>
+                    </button>
+                    <div class="faq-answer text-gray-400 mt-2 hidden">
+                        Sim, 100% seguro. Utilizamos a plataforma Kirvano, que possui certificação de segurança e criptografia de dados. Aceitamos cartão de crédito, débito, Pix e boleto.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-gray-800 rounded-lg border border-gray-700 px-6 py-4">
+                    <button class="faq-question w-full text-left font-semibold hover:text-orange-500 flex justify-between items-center">
+                        <span>E se eu não gostar do conteúdo?</span>
+                        <span class="text-orange-500">+</span>
+                    </button>
+                    <div class="faq-answer text-gray-400 mt-2 hidden">
+                        Você tem 30 dias de garantia incondicional. Se por qualquer motivo não ficar satisfeito, basta enviar um email que devolvemos 100% do seu investimento, sem perguntas.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="bg-gray-800 rounded-lg border border-gray-700 px-6 py-4">
+                    <button class="faq-question w-full text-left font-semibold hover:text-orange-500 flex justify-between items-center">
+                        <span>Posso acessar pelo celular?</span>
+                        <span class="text-orange-500">+</span>
+                    </button>
+                    <div class="faq-answer text-gray-400 mt-2 hidden">
+                        Sim! O ebook está em formato PDF, que pode ser lido em qualquer dispositivo: celular, tablet ou computador. Você pode até imprimir se preferir.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <!-- Final CTA -->
+        <div class="section-padding bg-gradient-to-r from-orange-500/10 via-orange-500/5 to-orange-500/10">
+            <div class="container-tight text-center">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                    Pronto para <span class="text-gradient">Despertar Seu Prime</span>?
+                </h2>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Não deixe para depois. A sua transformação começa agora.
+                </p>
+                <a href="https://pay.kirvano.com/349f28d0-a6e7-49d5-bddd-1a0bb7edda44" target="_blank" class="btn-primary inline-flex items-center gap-2 text-lg">
+                    QUERO COMEÇAR AGORA
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer content -->
+        <div class="py-8 px-4">
+            <div class="container-tight">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="text-center md:text-left">
+                        <p class="text-xl font-bold">
+                            Desperte <span class="text-orange-500">Seu Prime</span>
+                        </p>
+                        <p class="text-sm text-gray-400 mt-1">
+                            © 2025 Todos os direitos reservados.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-6 text-sm text-gray-400">
+                        <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                        <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+                        <a href="#" class="hover:text-white transition-colors">Contato</a>
+                    </div>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="mt-8 pt-6 border-t border-gray-700">
+                    <p class="text-xs text-gray-400 text-center max-w-4xl mx-auto">
+                        Este produto é vendido através da plataforma Kirvano. Os resultados podem variar de pessoa para pessoa. As informações contidas neste material são de caráter educacional e não substituem aconselhamento profissional de saúde mental.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Exit Intent Popup -->
+    <div id="exitPopup" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="relative bg-gray-800 border border-gray-700 rounded-2xl p-8 max-w-md w-full shadow-2xl animate-scale-in">
+            <button id="closePopup" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                ✕
+            </button>
+
+            <div class="text-center">
+                <div class="w-16 h-16 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-orange-500 text-3xl">🎁</span>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4">
+                    Espera! Tem <span class="text-gradient">um presente</span> para você
+                </h3>
+
+                <p class="text-gray-400 mb-6">
+                    Não vá embora ainda! Por tempo limitado, estamos oferecendo um <strong class="text-white">desconto extra de 10%</strong> no checkout.
+                </p>
+
+                <a href="https://pay.kirvano.com/349f28d0-a6e7-49d5-bddd-1a0bb7edda44" target="_blank" class="btn-primary w-full flex items-center justify-center gap-2">
+                    GARANTIR MEU DESCONTO
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </a>
+
+                <button id="closePopupBtn" class="mt-4 text-sm text-gray-400 hover:text-white transition-colors">
+                    Não, obrigado. Prefiro pagar mais caro.
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('block');
+                icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('block');
+                icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const plusMinus = button.querySelector('span:last-child');
+                
+                if (answer.classList.contains('hidden')) {
+                    answer.classList.remove('hidden');
+                    plusMinus.textContent = '−';
+                } else {
+                    answer.classList.add('hidden');
+                    plusMinus.textContent = '+';
+                }
+            });
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const hours = document.getElementById('hours');
+            const minutes = document.getElementById('minutes');
+            const seconds = document.getElementById('seconds');
+            
+            let h = parseInt(hours.textContent);
+            let m = parseInt(minutes.textContent);
+            let s = parseInt(seconds.textContent);
+            
+            if (s > 0) {
+                s--;
+            } else if (m > 0) {
+                m--;
+                s = 59;
+            } else if (h > 0) {
+                h--;
+                m = 59;
+                s = 59;
+            } else {
+                h = 23;
+                m = 59;
+                s = 59;
+            }
+            
+            hours.textContent = h.toString().padStart(2, '0');
+            minutes.textContent = m.toString().padStart(2, '0');
+            seconds.textContent = s.toString().padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('glass');
+                header.classList.add('py-3');
+                header.classList.remove('py-5');
+            } else {
+                header.classList.remove('glass');
+                header.classList.remove('py-3');
+                header.classList.add('py-5');
+            }
+        });
+
+        // Exit Intent Popup
+        let popupShown = false;
+        
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0 && !popupShown) {
+                document.getElementById('exitPopup').classList.remove('hidden');
+                document.getElementById('exitPopup').classList.add('flex');
+                popupShown = true;
+            }
+        });
+
+        document.getElementById('closePopup').addEventListener('click', () => {
+            document.getElementById('exitPopup').classList.add('hidden');
+            document.getElementById('exitPopup').classList.remove('flex');
+        });
+
+        document.getElementById('closePopupBtn').addEventListener('click', () => {
+            document.getElementById('exitPopup').classList.add('hidden');
+            document.getElementById('exitPopup').classList.remove('flex');
+        });
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-scale-in');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                
+                if (position.top < window.innerHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'scale(1)';
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
+    </script>
+</body>
+              </html>
