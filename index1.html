@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>2026: O Ano da Sua Transformação Total</title>  
+    <!-- Tailwind CSS -->  
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <!-- Fontes -->  
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">  
+    <!-- Ícones -->  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Personalizado -->  
+    <style>  
+        :root {  
+            --background: #000000;  
+            --foreground: #ffffff;  
+            --primary: #8B0000;  /* Vermelho bordo forte */
+            --primary-light: #B22222;  /* Vermelho bordo mais claro */
+            --primary-foreground: #ffffff;  
+            --card: #1a1a1a;  
+            --muted: #666666;  
+            --success: #228B22;  
+            --gold: #FFD700;
+        }  
+
+        * {  
+            box-sizing: border-box;  
+            margin: 0;  
+            padding: 0;  
+        }  
+
+        html {  
+            scroll-behavior: smooth;  
+        }  
+
+        body {  
+            background-color: var(--background);  
+            color: var(--foreground);  
+            font-family: 'Montserrat', sans-serif;  
+            overflow-x: hidden;
+        }  
+
+        h1, h2, h3, h4, h5, h6 {  
+            font-family: 'Playfair Display', serif;  
+        }  
+
+        .text-gradient {  
+            background: linear-gradient(to right, var(--primary), var(--gold));  
+            -webkit-background-clip: text;  
+            -webkit-text-fill-color: transparent;  
+            background-clip: text;  
+        }  
+
+        .btn-primary {  
+            background-color: var(--primary);  
+            color: white;  
+            font-weight: 700;  
+            padding: 1.2rem 2.5rem;  
+            border-radius: 0.5rem;  
+            display: inline-flex;  
+            align-items: center;  
+            gap: 0.8rem;  
+            text-decoration: none;  
+            transition: all 0.3s;  
+            box-shadow: 0 10px 20px rgba(139, 0, 0, 0.4);  
+            border: 2px solid var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }  
+
+        .btn-primary:hover {  
+            transform: translateY(-5px) scale(1.05);  
+            background-color: var(--primary-light);  
+            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.6);
+        }  
+
+        .btn-success {  
+            background-color: var(--success);  
+            color: white;  
+            font-weight: 600;  
+            padding: 1rem 2rem;  
+            border-radius: 0.5rem;  
+            display: inline-flex;  
+            align-items: center;  
+            gap: 0.5rem;  
+            text-decoration: none;  
+            transition: all 0.3s;  
+            box-shadow: 0 10px 20px rgba(34, 139, 34, 0.3);  
+        }  
+
+        .btn-success:hover {  
+            transform: scale(1.05);  
+            background-color: #1c7c1c;  
+        }  
+
+        .section-padding {  
+            padding: 4rem 1rem;  
+        }  
+
+        @media (min-width: 768px) {  
+            .section-padding {  
+                padding: 6rem 1rem;  
+            }  
+        }  
+
+        .container-tight {  
+            max-width: 72rem;  
+            margin: 0 auto;  
+            width: 100%;  
+        }  
+
+        .glass {  
+            background: rgba(26, 26, 26, 0.9);  
+            backdrop-filter: blur(10px);  
+            border: 1px solid rgba(255, 255, 255, 0.1);  
+        }  
+
+        .animate-fade-in {  
+            animation: fadeIn 0.5s ease-out;  
+        }  
+
+        .animate-fade-in-up {  
+            animation: fadeInUp 0.6s ease-out;  
+        }  
+
+        .animate-scale-in {  
+            animation: scaleIn 0.5s ease-out;  
+        }  
+
+        .animate-pulse-glow {  
+            animation: pulseGlow 2s infinite;  
+        }  
+
+        .animate-float {  
+            animation: float 3s ease-in-out infinite;  
+        }  
+
+        @keyframes fadeIn {  
+            from { opacity: 0; }  
+            to { opacity: 1; }  
+        }  
+
+        @keyframes fadeInUp {  
+            from { opacity: 0; transform: translateY(30px); }  
+            to { opacity: 1; transform: translateY(0); }  
+        }  
+
+        @keyframes scaleIn {  
+            from { opacity: 0; transform: scale(0.95); }  
+            to { opacity: 1; transform: scale(1); }  
+        }  
+
+        @keyframes pulseGlow {  
+            0%, 100% { box-shadow: 0 0 20px rgba(139, 0, 0, 0.6); }  
+            50% { box-shadow: 0 0 40px rgba(139, 0, 0, 0.9); }  
+        }  
+
+        @keyframes float {  
+            0%, 100% { transform: translateY(0) rotate(3deg); }  
+            50% { transform: translateY(-10px) rotate(3deg); }  
+        }  
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes fireworks {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .bg-hero-gradient {  
+            background: radial-gradient(ellipse at top, rgba(139, 0, 0, 0.2) 0%, transparent 50%),  
+                        radial-gradient(ellipse at bottom right, rgba(139, 0, 0, 0.15) 0%, transparent 40%),  
+                        #000000;  
+        }  
+
+        .card-hover {  
+            transition: all 0.3s;  
+        }  
+
+        .card-hover:hover {  
+            transform: translateY(-10px) scale(1.02);  
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.3);  
+            border-color: var(--primary);
+        }  
+
+        .new-year-badge {
+            background: linear-gradient(45deg, var(--primary), var(--gold));
+            color: white;
+            font-weight: 800;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            display: inline-block;
+            animation: pulseGlow 2s infinite;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background-color: #333;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+            width: 0%;
+            transition: width 2s ease-in-out;
+            border-radius: 3px;
+        }
+
+        .floating-buy-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            background-color: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.5);
+            animation: pulseGlow 3s infinite;
+            cursor: pointer;
+            display: none;
+        }
+
+        .testimonial-card {
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateX(10px);
+        }
+
+        .plan-card {
+            border: 2px solid #333;
+            transition: all 0.3s;
+        }
+
+        .plan-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.2);
+        }
+
+        .plan-card.featured .plan-header {
+            background: linear-gradient(45deg, var(--primary), #5a0000);
+        }
+
+        .plan-card:hover {
+            border-color: var(--primary);
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            animation: pulseRing 2s infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulseRing {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .strikethrough {
+            position: relative;
+            display: inline-block;
+        }
+
+        .strikethrough::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+            transform: translateY(-50%);
+        }
+
+        .limited-offer-flash {
+            animation: flash 1s infinite;
+        }
+
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>  
+<body class="bg-black text-white">
+    <!-- Elementos de confetti -->  
+    <div id="confetti-container"></div>
+    
+    <!-- Botão flutuante de compra -->  
+    <div class="floating-buy-btn" id="floatingBuyBtn">
+        <i class="fas fa-shopping-cart"></i>
+    </div>
+
+    <!-- Header -->  
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5">  
+        <div class="container-tight flex items-center justify-between px-4">  
+            <a href="#" class="text-2xl font-bold" style="font-family: 'Playfair Display', serif;">  
+                <span class="text-white">2026:</span> <span class="text-red-700">Transformação</span>  
+            </a>  
+              
+            <button id="mobileMenuButton" class="md:hidden p-2">  
+                <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">  
+                    <line x1="3" y1="12" x2="21" y2="12"></line>  
+                    <line x1="3" y1="6" x2="21" y2="6"></line>  
+                    <line x1="3" y1="18" x2="21" y2="18"></line>  
+                </svg>  
+            </button>  
+
+            <nav class="hidden md:flex items-center gap-8">  
+                <a href="#beneficios" class="text-sm font-medium text-gray-400 hover:text-white transition-colors relative group">  
+                    Metas 2026  
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-700 transition-all duration-300 group-hover:w-full"></span>  
+                </a>  
+                <a href="#preview" class="text-sm font-medium text-gray-400 hover:text-white transition-colors relative group">  
+                    Capítulo Grátis  
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-700 transition-all duration-300 group-hover:w-full"></span>  
+                </a>  
+                <a href="#planos" class="text-sm font-medium text-gray-400 hover:text-white transition-colors relative group">  
+                    Planos de Mudança  
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-700 transition-all duration-300 group-hover:w-full"></span>  
+                </a>  
+                <a href="#comprar" class="text-sm font-medium text-gray-400 hover:text-white transition-colors relative group">  
+                    Garantir Meu 2026  
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-700 transition-all duration-300 group-hover:w-full"></span>  
+                </a>  
+            </nav>  
+        </div>  
+
+        <!-- Mobile Menu -->  
+        <div id="mobileMenu" class="hidden md:hidden mt-2 mx-4 rounded-lg p-4 animate-fade-in glass">  
+            <a href="#beneficios" class="block py-3 text-center font-medium hover:text-red-700 transition-colors">  
+                Metas 2026  
+            </a>  
+            <a href="#preview" class="block py-3 text-center font-medium hover:text-red-700 transition-colors">  
+                Capítulo Grátis  
+            </a>  
+            <a href="#planos" class="block py-3 text-center font-medium hover:text-red-700 transition-colors">  
+                Planos de Mudança  
+            </a>  
+            <a href="#comprar" class="block py-3 text-center font-medium hover:text-red-700 transition-colors">  
+                Garantir Meu 2026  
+            </a>  
+        </div>  
+    </header>  
+
+    <!-- Hero Section -->  
+    <section class="min-h-screen bg-hero-gradient flex items-center relative overflow-hidden pt-20">  
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">  
+            <div class="absolute top-1/4 -left-32 w-64 h-64 bg-red-700/10 rounded-full blur-3xl"></div>  
+            <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-red-700/5 rounded-full blur-3xl"></div>  
+        </div>  
+
+        <div class="container-tight section-padding relative z-10">  
+            <div class="max-w-4xl mx-auto text-center">  
+                <!-- Scarcity Badge -->  
+                <div class="inline-flex items-center gap-2 bg-red-700/20 border border-red-700/50 rounded-full px-4 py-2 mb-8 animate-fade-in-up limited-offer-flash">  
+                    <span class="text-sm font-medium">  
+                        🎉 OFERTA DE RÉVEILLON — Últimas <span class="text-red-700 font-bold" id="remainingSpots">36</span> vagas antes de 2026  
+                    </span>  
+                </div>  
+
+                <!-- Headline -->  
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-in-up">  
+                    <span class="text-gradient">2026 SERÁ DIFERENTE!</span><br>
+                    A Vida Que Você SEMPRE Sonhou Começa Agora
+                </h1>  
+
+                <!-- Subheadline -->  
+                <p class="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-8 animate-fade-in-up">  
+                    <span class="text-red-700 font-bold">Últimas horas de 2025!</span> Descubra o método que transformará seus planos de ano novo em realidade. Acorde em 2026 com a mentalidade, hábitos e confiança para uma transformação completa.  
+                </p>  
+
+                <!-- Countdown Timer -->  
+                <div class="mb-8 animate-fade-in-up">
+                    <div class="new-year-badge mb-4">CONTAGEM REGRESSIVA PARA 2026</div>
+                    <div class="flex items-center justify-center gap-4 mb-2">
+                        <div class="flex flex-col items-center">
+                            <div class="text-4xl md:text-5xl font-bold text-white bg-gray-900 px-4 py-2 rounded-lg" id="countdown-hours">23</div>
+                            <div class="text-gray-400 text-sm mt-1">Horas</div>
+                        </div>
+                        <div class="text-3xl text-red-700">:</div>
+                        <div class="flex flex-col items-center">
+                            <div class="text-4xl md:text-5xl font-bold text-white bg-gray-900 px-4 py-2 rounded-lg" id="countdown-minutes">59</div>
+                            <div class="text-gray-400 text-sm mt-1">Minutos</div>
+                        </div>
+                        <div class="text-3xl text-red-700">:</div>
+                        <div class="flex flex-col items-center">
+                            <div class="text-4xl md:text-5xl font-bold text-white bg-gray-900 px-4 py-2 rounded-lg" id="countdown-seconds">59</div>
+                            <div class="text-gray-400 text-sm mt-1">Segundos</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">Esta oferta especial expira à meia-noite de 31/12/2025</p>
+                    
+                    <!-- Barra de progresso de vendas -->
+                    <div class="max-w-md mx-auto mt-6">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Vagas preenchidas: <span id="filledSpots">64%</span></span>
+                            <span class="text-gray-400"><span id="availableSpots">36</span> restantes</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- CTA Button -->  
+                <div class="animate-fade-in-up">  
+                    <a href="#comprar" class="btn-primary animate-pulse-glow" id="mainCtaBtn">  
+                        <i class="fas fa-fire"></i>
+                        GARANTIR MINHA TRANSFORMAÇÃO 2026  
+                        <i class="fas fa-arrow-right"></i>
+                    </a>  
+                    <p class="mt-4 text-sm text-gray-400">  
+                        <i class="fas fa-shield-alt text-red-700"></i> Pagamento 100% seguro • Acesso imediato • Garantia de 365 dias
+                    </p>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Social Proof -->  
+    <section class="py-12 bg-gray-900/80 border-y border-gray-800">  
+        <div class="container-tight px-4">  
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">  
+                <div class="flex flex-col items-center text-center">  
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-3">10.247+</div>  
+                    <p class="text-gray-400 mt-2">Transformações em 2025</p>  
+                </div>  
+                <div class="flex flex-col items-center text-center">  
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-3">4.9</div>  
+                    <p class="text-gray-400 mt-2">Avaliação (5.832 reviews)</p>  
+                </div>  
+                <div class="flex flex-col items-center text-center">  
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-3">94%</div>  
+                    <p class="text-gray-400 mt-2">Atingiram suas metas de ano novo</p>  
+                </div>  
+                <div class="flex flex-col items-center text-center">  
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-3">2026</div>  
+                    <p class="text-gray-400 mt-2">O ano da SUA transformação</p>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Benefits Section -->  
+    <section id="beneficios" class="section-padding bg-black">  
+        <div class="container-tight">  
+            <div class="text-center mb-12">  
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">  
+                    Seu <span class="text-gradient">2026 Extraordinário</span> Começa Aqui  
+                </h2>  
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">  
+                    O método completo para transformar seus planos de ano novo em realidade tangível
+                </p>  
+            </div>  
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">  
+                <!-- Benefit 1 -->  
+                <div class="bg-gray-900 rounded-xl p-6 border-l-4 border-red-700 card-hover animate-scale-in">  
+                    <div class="flex items-start gap-4">  
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-700/20 rounded-lg flex items-center justify-center">  
+                            <span class="text-red-700 text-xl">🎯</span>  
+                        </div>  
+                        <div>  
+                            <h3 class="text-xl font-bold mb-2">Metas 2026 que REALMENTE funcionam</h3>  
+                            <p class="text-gray-400">Sistema comprovado para definir e alcançar objetivos no novo ano. Diferente dos 87% que desistem até fevereiro.</p>  
+                        </div>  
+                    </div>  
+                </div>  
+
+                <!-- Benefit 2 -->  
+                <div class="bg-gray-900 rounded-xl p-6 border-l-4 border-red-700 card-hover animate-scale-in" style="animation-delay: 0.1s;">  
+                    <div class="flex items-start gap-4">  
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-700/20 rounded-lg flex items-center justify-center">  
+                            <span class="text-red-700 text-xl">🧠</span>  
+                        </div>  
+                        <div>  
+                            <h3 class="text-xl font-bold mb-2">Mindset de Reinício Total</h3>  
+                            <p class="text-gray-400">Reprograme sua mente para o novo ano. Elimine padrões antigos e crie hábitos duradouros de sucesso.</p>  
+                        </div>  
+                    </div>  
+                </div>  
+
+                <!-- Benefit 3 -->  
+                <div class="bg-gray-900 rounded-xl p-6 border-l-4 border-red-700 card-hover animate-scale-in" style="animation-delay: 0.2s;">  
+                    <div class="flex items-start gap-4">  
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-700/20 rounded-lg flex items-center justify-center">  
+                            <span class="text-red-700 text-xl">💰</span>  
+                        </div>  
+                        <div>  
+                            <h3 class="text-xl font-bold mb-2">Prosperidade Financeira em 2026</h3>  
+                            <p class="text-gray-400">Estratégias para multiplicar sua renda, economizar inteligentemente e atingir liberdade financeira.</p>  
+                        </div>  
+                    </div>  
+                </div>  
+
+                <!-- Benefit 4 -->  
+                <div class="bg-gray-900 rounded-xl p-6 border-l-4 border-red-700 card-hover animate-scale-in" style="animation-delay: 0.3s;">  
+                    <div class="flex items-start gap-4">  
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-700/20 rounded-lg flex items-center justify-center">  
+                            <span class="text-red-700 text-xl">❤️</span>  
+                        </div>  
+                        <div>  
+                            <h3 class="text-xl font-bold mb-2">Relações Significativas</h3>  
+                            <p class="text-gray-400">Atraia e mantenha relacionamentos saudáveis. Família, amigos e parceiros em harmonia.</p>  
+                        </div>  
+                    </div>  
+                </div>  
+
+                <!-- Benefit 5 -->  
+                <div class="bg-gray-900 rounded-xl p-6 border-l-4 border-red-700 card-hover animate-scale-in" style="animation-delay: 0.4s;">  
+                    <div class="flex items-start gap-4">  
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-700/20 rounded-lg flex items-center justify-center">  
+                            <span class="text-red-700 text-xl">⚡</span>  
+                        </div>  
+                        <div>  
+                            <h3 class="text-xl font-bold mb-2">Energia e Vitalidade Ilimitadas</h3>  
+                            <p class="text-gray-400">Acorde todos os dias de 2026 com energia transbordante e vitalidade renovada.</p>  
+                        </div>  
+                    </div>  
+                </div>  
+
+                <!-- Benefit 6 -->  
+                <div class="bg-gray-900 rounded-xl p-6 border-l-4 border-red-700 card-hover animate-scale-in" style="animation-delay: 0.5s;">  
+                    <div class="flex items-start gap-4">  
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-700/20 rounded-lg flex items-center justify-center">  
+                            <span class="text-red-700 text-xl">🚀</span>  
+                        </div>  
+                        <div>  
+                            <h3 class="text-xl font-bold mb-2">Carreira dos Sonhos</h3>  
+                            <p class="text-gray-400">Posicione-se para promoções, aumentos ou empreendedorismo de sucesso no novo ano.</p>  
+                        </div>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Testimonials Section -->
+    <section class="section-padding bg-gray-900/50">
+        <div class="container-tight">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                    Quem <span class="text-gradient">Transformou 2025</span> e Garante 2026
+                </h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    Veja o que aconteceu com quem decidiu mudar no ano passado
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-900 rounded-xl p-6 testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-700/20 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-700">M</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Marcela, 32 anos</h4>
+                            <p class="text-gray-400 text-sm">Promovida 2x em 2025</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Comprei na virada do ano e 2025 foi incrível! Aumentei meu salário em 80% e finalmente sai do aluguel. Agora vou repetir o método para 2026!"</p>
+                    <div class="flex text-yellow-400 mt-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl p-6 testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-700/20 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-700">R</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Ricardo, 41 anos</h4>
+                            <p class="text-gray-400 text-sm">Empreendedor de sucesso</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Depois de anos fazendo as mesmas promessas de ano novo, finalmente encontrei um método que funciona. Minha empresa faturou 3x mais em 2025!"</p>
+                    <div class="flex text-yellow-400 mt-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl p-6 testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-700/20 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-700">A</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Ana, 28 anos</h4>
+                            <p class="text-gray-400 text-sm">-22kg e nova carreira</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Perdi 22kg, mudei de carreira e conheci meu atual noivo. Tudo depois de aplicar o método no início de 2025. Mal posso esperar por 2026!"</p>
+                    <div class="flex text-yellow-400 mt-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos Section -->
+    <section id="planos" class="section-padding bg-black">
+        <div class="container-tight">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                    Escolha Seu <span class="text-gradient">Plano de Transformação 2026</span>
+                </h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    Invista na sua mudança enquanto ainda é 2025 e garanta um 2026 extraordinário
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Plano Básico -->
+                <div class="bg-gray-900 rounded-xl p-8 plan-card">
+                    <div class="plan-header rounded-t-xl -mx-8 -mt-8 p-6 mb-6 bg-gray-800">
+                        <h3 class="text-2xl font-bold text-center">Reinício Essencial</h3>
+                        <div class="text-center mt-4">
+                            <span class="text-4xl font-bold">R$ 19,90</span>
+                            <span class="text-gray-400">/ano</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">Ebook completo "Transformação 2026"</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">Planejador de metas 2026</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">Acesso por 1 ano</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gray-500 mt-0.5">✗</span>
+                            <span class="text-gray-500">Grupo VIP exclusivo</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gray-500 mt-0.5">✗</span>
+                            <span class="text-gray-500">Mentoria individual</span>
+                        </li>
+                    </ul>
+                    <a href="#comprar" class="btn-primary w-full text-center justify-center" data-plan="basico">
+                        ESCOLHER ESSE
+                    </a>
+                </div>
+                
+                <!-- Plano RECOMENDADO -->
+                <div class="bg-gray-900 rounded-xl p-8 plan-card featured">
+                    <div class="plan-header rounded-t-xl -mx-8 -mt-8 p-6 mb-6">
+                        <div class="text-center mb-2">
+                            <span class="bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-full">MAIS POPULAR</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center">Transformação Total</h3>
+                        <div class="text-center mt-4">
+                            <span class="text-4xl font-bold">R$ 19,90</span>
+                            <span class="text-gray-300">/ano</span>
+                        </div>
+                        <p class="text-center text-gray-300 mt-2">Economize 45%</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">Tudo do plano Essencial</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">Grupo VIP exclusivo para 2026</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">4 workshops ao vivo em 2026</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">Planilhas de acompanhamento premium</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">Acesso vitalício</span>
+                        </li>
+                    </ul>
+                    <a href="#comprar" class="btn-primary w-full text-center justify-center animate-pulse-glow" data-plan="transformacao">
+                        <i class="fas fa-crown"></i> QUERO TRANSFORMAÇÃO TOTAL
+                    </a>
+                </div>
+                
+                <!-- Plano VIP -->
+                <div class="bg-gray-900 rounded-xl p-8 plan-card">
+                    <div class="plan-header rounded-t-xl -mx-8 -mt-8 p-6 mb-6 bg-gray-800">
+                        <h3 class="text-2xl font-bold text-center">Mudança Radical VIP</h3>
+                        <div class="text-center mt-4">
+                            <span class="text-4xl font-bold">R$ 19,90</span>
+                            <span class="text-gray-400">/ano</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">Tudo do plano Transformação</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">2 sessões de mentoria individual</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">Plano personalizado para 2026</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">Acesso antecipado a novos conteúdos</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-700 mt-0.5">✓</span>
+                            <span class="text-gray-300">Certificado de Conclusão</span>
+                        </li>
+                    </ul>
+                    <a href="#comprar" class="btn-primary w-full text-center justify-center" data-plan="vip">
+                        MUDANÇA RADICAL AGORA
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-400">Mais de 92% escolhem o plano <span class="text-red-700 font-bold">Transformação Total</span> para maximizar seus resultados em 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Section -->  
+    <section id="preview" class="section-padding bg-gradient-to-b from-gray-900 to-black">  
+        <div class="container-tight">  
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">  
+                <!-- Mockup -->  
+                <div class="flex justify-center">  
+                    <div class="relative animate-float">  
+                        <div class="w-48 md:w-64 h-64 md:h-80 bg-gradient-to-br from-red-700 to-black rounded-lg shadow-2xl shadow-red-700/30 flex items-center justify-center transform rotate-3 border-2 border-red-700">  
+                            <div class="text-center text-white p-6">  
+                                <span class="text-5xl mb-4">🎁</span>  
+                                <p class="text-sm font-semibold uppercase tracking-wider mb-2">Presente de Réveillon</p>  
+                                <p class="text-xl font-bold">Capítulo 1 Grátis</p>  
+                                <p class="text-sm mt-2 text-gray-300">"O Poder do Reinício"</p>  
+                            </div>  
+                        </div>  
+                        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-red-700 rounded-full flex items-center justify-center shadow-lg border-2 border-white">  
+                            <span class="text-white font-bold text-xs">GRÁTIS</span>  
+                        </div>  
+                    </div>  
+                </div>  
+
+                <!-- Content -->  
+                <div>  
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">  
+                        Experimente Antes de 2026 <span class="text-gradient">(Grátis!)</span>  
+                    </h2>  
+                    <p class="text-lg text-gray-400 mb-8">  
+                        Receba o primeiro capítulo completo do método que está transformando vidas. Descubra como reprogramar sua mente para um novo ano de conquistas.  
+                    </p>  
+
+                    <!-- Checklist -->  
+                    <ul class="space-y-4 mb-8">  
+                        <li class="flex items-center gap-3">  
+                            <div class="w-6 h-6 bg-red-700/20 rounded-full flex items-center justify-center flex-shrink-0">  
+                                <span class="text-red-700">✓</span>  
+                            </div>  
+                            <span class="text-white">Capítulo 1: O Poder Mental do Reinício</span>  
+                        </li>  
+                        <li class="flex items-center gap-3">  
+                            <div class="w-6 h-6 bg-red-700/20 rounded-full flex items-center justify-center flex-shrink-0">  
+                                <span class="text-red-700">✓</span>  
+                            </div>  
+                            <span class="text-white">Exercício: Sua Visão para 2026</span>  
+                        </li>  
+                        <li class="flex items-center gap-3">  
+                            <div class="w-6 h-6 bg-red-700/20 rounded-full flex items-center justify-center flex-shrink-0">  
+                                <span class="text-red-700">✓</span>  
+                            </div>  
+                            <span class="text-white">Áudio de Motivação para o Réveillon</span>  
+                        </li>  
+                        <li class="flex items-center gap-3">  
+                            <div class="w-6 h-6 bg-red-700/20 rounded-full flex items-center justify-center flex-shrink-0">  
+                                <span class="text-red-700">✓</span>  
+                            </div>  
+                            <span class="text-white">Checklist: Preparação para 2026</span>  
+                        </li>  
+                    </ul>  
+
+                    <!-- Formulário para captura de email -->  
+                    <div class="bg-gray-900 rounded-xl p-6 mb-8">  
+                        <p class="font-semibold mb-4 text-white">Para receber o capítulo grátis, insira seu email:</p>  
+                        <div class="flex flex-col sm:flex-row gap-3">  
+                            <input type="email" id="emailInput" placeholder="seuemail@exemplo.com" class="flex-grow px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-red-700">  
+                            <button id="downloadPreviewBtn" class="btn-success px-6">  
+                                <span>🎁</span>  
+                                RECEBER AGORA  
+                            </button>  
+                        </div>  
+                        <p class="text-xs text-gray-400 mt-3">Seu email está seguro. Não enviamos spam.</p>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Pricing Section -->  
+    <section id="comprar" class="section-padding bg-black relative overflow-hidden">  
+        <div class="absolute inset-0 pointer-events-none">  
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-700/10 rounded-full blur-3xl"></div>  
+        </div>  
+
+        <div class="container-tight relative z-10">  
+            <div class="text-center mb-12">  
+                <div class="new-year-badge mb-6">OFERTA ESPECIAL DE RÉVEILLON</div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">  
+                    Garanta Seu <span class="text-gradient">2026 Extraordinário</span> Hoje  
+                </h2>  
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">  
+                    Por menos que uma ceia de Réveillon, você transformará completamente o próximo ano  
+                </p>  
+            </div>  
+
+            <!-- Pricing Card -->  
+            <div class="max-w-2xl mx-auto">  
+                <div class="bg-gray-900 rounded-2xl border-2 border-red-700 overflow-hidden shadow-xl shadow-red-700/20">  
+                    <!-- Header -->  
+                    <div class="bg-gradient-to-r from-red-800 to-red-900 p-8 text-center relative">  
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                            <div class="bg-red-700 text-white text-sm font-bold px-4 py-1 rounded-full">
+                                <i class="fas fa-gift mr-2"></i> BÔNUS DE RÉVEILLON INCLUSO
+                            </div>
+                        </div>
+                        <p class="text-white/80 text-sm uppercase tracking-wider mb-2">Última Chance em 2025</p>  
+                        <div class="flex items-center justify-center gap-2">  
+                            <span class="text-white/60 line-through text-xl">De R$ 19,90,00</span>  
+                        </div>  
+                        <div class="flex items-baseline justify-center mt-2">  
+                            <span class="text-white text-2xl">R$</span>  
+                            <span class="text-white text-6xl font-bold">19,90</span>  
+                            <span class="text-white text-2xl">,00</span>  
+                        </div>  
+                        <p class="text-white/80 text-sm mt-2">ou à vista por apenas R$ 19,90 | À vista no </p>  
+                        <div class="mt-4">
+                            <span class="bg-black/30 text-white text-xs px-3 py-1 rounded-full">Economia de R$ 300</span>
+                        </div>
+                    </div>  
+
+                    <!-- Content -->  
+                    <div class="p-6 md:p-8">  
+                        <!-- Included -->  
+                        <p class="font-semibold mb-4 text-white text-lg">Sua Transformação 2026 Inclui:</p>  
+                        <ul class="space-y-3 mb-6">  
+                            <li class="flex items-start gap-3">  
+                                <span class="text-red-700 mt-0.5 text-xl">✓</span>  
+                                <span class="text-gray-300">Ebook "Transformação Total 2026" (250+ páginas)</span>  
+                            </li>  
+                            <li class="flex items-start gap-3">  
+                                <span class="text-red-700 mt-0.5 text-xl">✓</span>  
+                                <span class="text-gray-300">Planejador de Metas 2026 (físico + digital)</span>  
+                            </li>  
+                            <li class="flex items-start gap-3">  
+                                <span class="text-red-700 mt-0.5 text-xl">✓</span>  
+                                <span class="text-gray-300">4 Workshops Ao Vivo exclusivos para 2026</span>  
+                            </li>  
+                            <li class="flex items-start gap-3">  
+                                <span class="text-red-700 mt-0.5 text-xl">✓</span>  
+                                <span class="text-gray-300">Acesso ao Grupo VIP "Elite 2026"</span>  
+                            </li>  
+                            <li class="flex items-start gap-3">  
+                                <span class="text-red-700 mt-0.5 text-xl">✓</span>  
+                                <span class="text-gray-300">Acesso vitalício + atualizações gratuitas</span>  
+                            </li>  
+                        </ul>  
+
+                        <!-- Bonuses -->  
+                        <div class="bg-gradient-to-r from-red-900/30 to-red-700/20 border border-red-700/30 rounded-lg p-5 mb-6">  
+                            <p class="font-semibold text-white mb-3 text-lg">🎁 BÔNUS EXCLUSIVOS DE RÉVEILLON:</p>  
+                            <ul class="space-y-3">  
+                                <li class="flex items-start gap-3">  
+                                    <span class="text-yellow-400 mt-0.5">⭐</span>  
+                                    <span class="text-white">BÔNUS: Curso "Metas que Funcionam" (R$ 19,90,00)</span>  
+                                </li>  
+                                <li class="flex items-start gap-3">  
+                                    <span class="text-yellow-400 mt-0.5">⭐</span>  
+                                    <span class="text-white">BÔNUS: Consultoria em grupo para definir metas 2026</span>  
+                                </li>  
+                                <li class="flex items-start gap-3">  
+                                    <span class="text-yellow-400 mt-0.5">⭐</span>  
+                                    <span class="text-white">BÔNUS: Áudios de Motivação Diária para todo janeiro</span>  
+                                </li>  
+                            </ul>  
+                            <p class="text-yellow-300 text-sm mt-3">Bônus disponíveis apenas até 31/12 às 23:59!</p>  
+                        </div>  
+
+                        <!-- Garantia -->  
+                        <div class="flex items-center gap-4 bg-gray-800 rounded-lg p-5 mb-6 border border-gray-700">  
+                            <div class="relative">
+                                <span class="text-red-700 text-4xl">🛡️</span>  
+                                <div class="pulse-ring"></div>
+                            </div>
+                            <div>  
+                                <p class="font-semibold text-white">Garantia Incondicional de 365 Dias</p>  
+                                <p class="text-sm text-gray-400">Se em 2026 você não estiver completamente transformado, devolvemos 100% do seu investimento. Sem perguntas.</p>  
+                            </div>  
+                        </div>  
+
+                        <!-- CTA -->  
+                        <a href="https://pay.kirvano.com/349f28d0-a6e7-49d5-bddd-1a0bb7edda44" target="_blank" class="btn-primary w-full flex items-center justify-center gap-3 text-lg py-4 animate-pulse-glow" id="finalCtaBtn">  
+                            <i class="fas fa-bolt"></i>
+                            SIM, QUERO MEU 2026 EXTRAORDINÁRIO!  
+                            <i class="fas fa-arrow-right"></i>
+                        </a>  
+
+                        <!-- Trust badges -->  
+                        <div class="flex flex-wrap items-center justify-center gap-6 mt-8 text-gray-400">  
+                            <div class="flex items-center gap-2 text-sm">  
+                                <span class="text-red-700">🔒</span>  
+                                <span>Pagamento 100% Seguro</span>  
+                            </div>  
+                            <div class="flex items-center gap-2 text-sm">  
+                                <span class="text-red-700">💳</span>  
+                                <span>Cartão, Pix, Boleto</span>  
+                            </div>  
+                            <div class="flex items-center gap-2 text-sm">  
+                                <span class="text-red-700">📱</span>  
+                                <span>Acesso Imediato</span>  
+                            </div>  
+                        </div>  
+                        
+                        <!-- Timer de oferta -->  
+                        <div class="mt-8 pt-6 border-t border-gray-800 text-center">  
+                            <p class="text-gray-400 mb-2">Esta oferta expira em:</p>  
+                            <div class="flex items-center justify-center gap-2">  
+                                <div class="bg-gray-800 text-white font-bold px-3 py-2 rounded-lg"><span id="offer-hours">05</span>h</div>  
+                                <div class="bg-gray-800 text-white font-bold px-3 py-2 rounded-lg"><span id="offer-minutes">23</span>m</div>  
+                                <div class="bg-gray-800 text-white font-bold px-3 py-2 rounded-lg"><span id="offer-seconds">47</span>s</div>  
+                            </div>  
+                        </div>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- FAQ Section -->  
+    <section class="section-padding bg-gray-900/30">  
+        <div class="container-tight">  
+            <div class="text-center mb-12">  
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">  
+                    Suas Dúvidas sobre <span class="text-gradient">2026</span>  
+                </h2>  
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">  
+                    Tudo o que você precisa saber antes de garantir seu ano de transformação  
+                </p>  
+            </div>  
+
+            <div class="max-w-3xl mx-auto space-y-4">  
+                <!-- FAQ 1 -->  
+                <div class="bg-gray-900 rounded-lg border border-gray-800 px-6 py-4">  
+                    <button class="faq-question w-full text-left font-semibold hover:text-red-700 flex justify-between items-center">  
+                        <span>Quando receberei acesso ao conteúdo?</span>  
+                        <span class="text-red-700 transform transition-transform duration-300">+</span>  
+                    </button>  
+                    <div class="faq-answer text-gray-400 mt-2 hidden">  
+                        Imediatamente após a confirmação do pagamento! Você receberá um email com todos os acessos em até 3 minutos. Assim você já pode começar a se preparar para 2026 ainda hoje.  
+                    </div>  
+                </div>  
+
+                <!-- FAQ 2 -->  
+                <div class="bg-gray-900 rounded-lg border border-gray-800 px-6 py-4">  
+                    <button class="faq-question w-full text-left font-semibold hover:text-red-700 flex justify-between items-center">  
+                        <span>Funciona mesmo para metas de ano novo?</span>  
+                        <span class="text-red-700 transform transition-transform duration-300">+</span>  
+                    </button>  
+                    <div class="faq-answer text-gray-400 mt-2 hidden">  
+                        Sim! 94% dos nossos alunos que começaram na virada do ano anterior atingiram suas principais metas. O método foi especialmente desenvolvido para o "efeito reinício" do ano novo, aproveitando a motivação natural dessa época.  
+                    </div>  
+                </div>  
+
+                <!-- FAQ 3 -->  
+                <div class="bg-gray-900 rounded-lg border border-gray-800 px-6 py-4">  
+                    <button class="faq-question w-full text-left font-semibold hover:text-red-700 flex justify-between items-center">  
+                        <span>E se 2026 não for diferente para mim?</span>  
+                        <span class="text-red-700 transform transition-transform duration-300">+</span>  
+                    </button>  
+                    <div class="faq-answer text-gray-400 mt-2 hidden">  
+                        Oferecemos uma garantia incondicional de 365 dias. Se em qualquer momento de 2026 você achar que não valeu a pena, devolvemos 100% do seu investimento. Você tem um ano inteiro para testar e comprovar os resultados.  
+                    </div>  
+                </div>  
+
+                <!-- FAQ 4 -->  
+                <div class="bg-gray-900 rounded-lg border border-gray-800 px-6 py-4">  
+                    <button class="faq-question w-full text-left font-semibold hover:text-red-700 flex justify-between items-center">  
+                        <span>Preciso ter experiência com desenvolvimento pessoal?</span>  
+                        <span class="text-red-700 transform transition-transform duration-300">+</span>  
+                    </button>  
+                    <div class="faq-answer text-gray-400 mt-2 hidden">  
+                        Não! O método foi criado para funcionar tanto para iniciantes quanto para pessoas que já têm experiência. Tudo é explicado passo a passo, com linguagem acessível e exercícios práticos.  
+                    </div>  
+                </div>  
+
+                <!-- FAQ 5 -->  
+                <div class="bg-gray-900 rounded-lg border border-gray-800 px-6 py-4">  
+                    <button class="faq-question w-full text-left font-semibold hover:text-red-700 flex justify-between items-center">  
+                        <span>Os bônus de Réveillon são realmente gratuitos?</span>  
+                        <span class="text-red-700 transform transition-transform duration-300">+</span>  
+                    </button>  
+                    <div class="faq-answer text-gray-400 mt-2 hidden">  
+                        Sim! Todos os bônus listados serão adicionados à sua conta sem custo adicional. Porém, eles estão disponíveis apenas para compras realizadas até 31/12 às 23:59. Após essa data, a oferta volta ao preço normal sem os bônus.  
+                    </div>  
+                </div>  
+
+                <!-- FAQ 6 -->  
+                <div class="bg-gray-900 rounded-lg border border-gray-800 px-6 py-4">  
+                    <button class="faq-question w-full text-left font-semibold hover:text-red-700 flex justify-between items-center">  
+                        <span>Posso dividir com amigos/família?</span>  
+                        <span class="text-red-700 transform transition-transform duration-300">+</span>  
+                    </button>  
+                    <div class="faq-answer text-gray-400 mt-2 hidden">  
+                        Cada licença é individual. No entanto, temos uma oferta especial para grupos: 3 ou mais pessoas ganham 20% de desconto cada. Entre em contato pelo suporte para aproveitar essa oferta.  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Footer -->  
+    <footer class="bg-gray-900 border-t border-gray-800">  
+        <!-- Final CTA -->  
+        <div class="section-padding bg-gradient-to-r from-red-900/20 via-black to-red-900/20">  
+            <div class="container-tight text-center">  
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">  
+                    Última Chance de Garantir um <span class="text-gradient">2026 Diferente</span>  
+                </h2>  
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">  
+                    Amanhã será 2026. Você quer acordar no mesmo patamar ou pronto para uma vida extraordinária?  
+                </p>  
+                <a href="https://pay.kirvano.com/349f28d0-a6e7-49d5-bddd-1a0bb7edda44" target="_blank" class="btn-primary inline-flex items-center gap-2 text-lg">  
+                    <i class="fas fa-calendar-star"></i>
+                    GARANTIR MEU 2026 AGORA  
+                    <i class="fas fa-arrow-right"></i>
+                </a>  
+                <p class="mt-6 text-gray-500 text-sm">Oferta válida até 31/12/2025 às 23:59</p>  
+            </div>  
+        </div>  
+
+        <!-- Footer content -->  
+        <div class="py-8 px-4">  
+            <div class="container-tight">  
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">  
+                    <div class="text-center md:text-left">  
+                        <p class="text-xl font-bold">  
+                            <span class="text-white">Transformação</span> <span class="text-red-700">2026</span>  
+                        </p>  
+                        <p class="text-sm text-gray-400 mt-1">  
+                            © 2025 - 2026 Todos os direitos reservados.  
+                        </p>  
+                    </div>  
+
+                    <div class="flex items-center gap-6 text-sm text-gray-400">  
+                        <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>  
+                        <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>  
+                        <a href="#" class="hover:text-white transition-colors">Suporte</a>  
+                    </div>  
+                </div>  
+
+                <!-- Disclaimer -->  
+                <div class="mt-8 pt-6 border-t border-gray-800">  
+                    <p class="text-xs text-gray-400 text-center max-w-4xl mx-auto">  
+                        Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site. Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto e usamos resultados reais. Nós não vendemos o seu e-mail ou qualquer informação para terceiros. Jamais fazemos spam.  
+                    </p>  
+                </div>  
+            </div>  
+        </div>  
+    </footer>  
+
+    <!-- Exit Intent Popup -->  
+    <div id="exitPopup" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-sm">  
+        <div class="relative bg-gray-900 border-2 border-red-700 rounded-2xl p-8 max-w-md w-full shadow-2xl animate-scale-in">  
+            <button id="closePopup" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">  
+                ✕  
+            </button>  
+
+            <div class="text-center">  
+                <div class="w-16 h-16 bg-red-700/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-red-700">  
+                    <span class="text-red-700 text-3xl">🎆</span>  
+                </div>  
+
+                <h3 class="text-2xl font-bold mb-4">  
+                    Espera! <span class="text-gradient">Fogo de artifício!</span>  
+                </h3>  
+
+                <p class="text-gray-400 mb-6">  
+                    Vi que você está prestes a sair. Que tal garantir seu <strong class="text-white">2026 extraordinário</strong> com um desconto extra de Réveillon?  
+                </p>  
+                
+                <div class="bg-gray-800 rounded-lg p-4 mb-6">
+                    <p class="text-white font-bold">Use o código:</p>
+                    <p class="text-2xl font-bold text-red-700 my-2">REVEILLON2026</p>
+                    <p class="text-gray-400 text-sm">Para 15% de desconto extra no checkout!</p>
+                </div>
+
+                <a href="https://pay.kirvano.com/349f28d0-a6e7-49d5-bddd-1a0bb7edda44" target="_blank" class="btn-primary w-full flex items-center justify-center gap-2 mb-3">  
+                    <i class="fas fa-fire"></i>
+                    QUERO MEU DESCONTO DE RÉVEILLON  
+                </a>  
+
+                <button id="closePopupBtn" class="text-sm text-gray-400 hover:text-white transition-colors">  
+                    Não, obrigado. Prefiro um 2026 comum.  
+                </button>  
+            </div>  
+        </div>  
+    </div>  
+
+    <!-- JavaScript -->  
+    <script>  
+        // Mobile Menu  
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {  
+            const menu = document.getElementById('mobileMenu');  
+            const icon = document.getElementById('menuIcon');  
+              
+            if (menu.classList.contains('hidden')) {  
+                menu.classList.remove('hidden');  
+                menu.classList.add('block');  
+                icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';  
+            } else {  
+                menu.classList.add('hidden');  
+                menu.classList.remove('block');  
+                icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';  
+            }  
+        });  
+
+        // FAQ Accordion  
+        document.querySelectorAll('.faq-question').forEach(button => {  
+            button.addEventListener('click', () => {  
+                const answer = button.nextElementSibling;  
+                const icon = button.querySelector('span:last-child');  
+                  
+                if (answer.classList.contains('hidden')) {  
+                    answer.classList.remove('hidden');  
+                    icon.textContent = '−';  
+                    icon.classList.add('rotate-180');  
+                } else {  
+                    answer.classList.add('hidden');  
+                    icon.textContent = '+';  
+                    icon.classList.remove('rotate-180');  
+                }  
+            });  
+        });  
+
+        // Countdown Timer para o Réveillon
+        function updateCountdown() {  
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const newYear = new Date(`January 1, ${currentYear + 1} 00:00:00`);
+            const diff = newYear - now;
+            
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Timer para oferta (5 horas)
+            const offerHours = document.getElementById('offer-hours');
+            const offerMinutes = document.getElementById('offer-minutes');
+            const offerSeconds = document.getElementById('offer-seconds');
+            
+            if (offerHours) {
+                let offerH = parseInt(offerHours.textContent);
+                let offerM = parseInt(offerMinutes.textContent);
+                let offerS = parseInt(offerSeconds.textContent);
+                
+                if (offerS > 0) {
+                    offerS--;
+                } else if (offerM > 0) {
+                    offerM--;
+                    offerS = 59;
+                } else if (offerH > 0) {
+                    offerH--;
+                    offerM = 59;
+                    offerS = 59;
+                } else {
+                    offerH = 5;
+                    offerM = 0;
+                    offerS = 0;
+                }
+                
+                offerHours.textContent = offerH.toString().padStart(2, '0');
+                offerMinutes.textContent = offerM.toString().padStart(2, '0');
+                offerSeconds.textContent = offerS.toString().padStart(2, '0');
+            }
+            
+            // Atualizar barra de progresso
+            const progressFill = document.getElementById('progressFill');
+            if (progressFill) {
+                const progress = 64 + Math.sin(now.getTime() / 10000) * 2; // Efeito dinâmico
+                progressFill.style.width = `${Math.min(progress, 95)}%`;
+                
+                // Atualizar números de vagas
+                const remaining = Math.floor(100 - progress);
+                document.getElementById('remainingSpots').textContent = remaining;
+                document.getElementById('availableSpots').textContent = remaining;
+                document.getElementById('filledSpots').textContent = `${Math.floor(progress)}%`;
+            }
+        }  
+        
+        // Iniciar contador
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Header Scroll Effect  
+        window.addEventListener('scroll', () => {  
+            const header = document.getElementById('header');  
+            if (window.scrollY > 50) {  
+                header.classList.add('glass');  
+                header.classList.add('py-3');  
+                header.classList.remove('py-5');  
+            } else {  
+                header.classList.remove('glass');  
+                header.classList.remove('py-3');  
+                header.classList.add('py-5');  
+            }  
+            
+            // Mostrar/ocultar botão flutuante
+            const floatingBtn = document.getElementById('floatingBuyBtn');
+            if (window.scrollY > 500) {
+                floatingBtn.style.display = 'flex';
+            } else {
+                floatingBtn.style.display = 'none';
+            }
+        });  
+
+        // Botão flutuante de compra
+        document.getElementById('floatingBuyBtn').addEventListener('click', function() {
+            document.getElementById('comprar').scrollIntoView({ behavior: 'smooth' });
+            createConfetti(20);
+        });
+
+        // Exit Intent Popup  
+        let popupShown = false;  
+          
+        document.addEventListener('mouseleave', (e) => {  
+            if (e.clientY <= 0 && !popupShown && window.scrollY > 300) {  
+                setTimeout(() => {
+                    document.getElementById('exitPopup').classList.remove('hidden');  
+                    document.getElementById('exitPopup').classList.add('flex');  
+                    popupShown = true;  
+                    createFireworks(5);
+                }, 500);
+            }  
+        });  
+
+        document.getElementById('closePopup').addEventListener('click', () => {  
+            document.getElementById('exitPopup').classList.add('hidden');  
+            document.getElementById('exitPopup').classList.remove('flex');  
+        });  
+
+        document.getElementById('closePopupBtn').addEventListener('click', () => {  
+            document.getElementById('exitPopup').classList.add('hidden');  
+            document.getElementById('exitPopup').classList.remove('flex');  
+        });  
+
+        // Animate elements on scroll  
+        function animateOnScroll() {  
+            const elements = document.querySelectorAll('.animate-scale-in');  
+              
+            elements.forEach(element => {  
+                const position = element.getBoundingClientRect();  
+                  
+                if (position.top < window.innerHeight - 100) {  
+                    element.style.opacity = '1';  
+                    element.style.transform = 'scale(1)';  
+                }  
+            });  
+        }  
+          
+        window.addEventListener('scroll', animateOnScroll);  
+        animateOnScroll();  
+
+        // Download do preview grátis
+        document.getElementById('downloadPreviewBtn').addEventListener('click', function() {
+            const email = document.getElementById('emailInput').value;
+            if (email && email.includes('@') && email.includes('.')) {
+                // Simulação de envio
+                this.innerHTML = '<i class="fas fa-check"></i> ENVIADO!';
+                this.classList.remove('btn-success');
+                this.classList.add('bg-green-700');
+                document.getElementById('emailInput').value = 'Obrigado! Verifique seu email em alguns minutos.';
+                document.getElementById('emailInput').disabled = true;
+                
+                // Criar confetti
+                createConfetti(30);
+                
+                // Mostrar mensagem de sucesso
+                setTimeout(() => {
+                    alert('Capítulo 1 enviado! Verifique seu email (inclusive a caixa de spam). Boa transformação para 2026! 🎉');
+                }, 500);
+            } else {
+                alert('Por favor, insira um email válido para receber o capítulo grátis.');
+            }
+        });
+
+        // Sistema de confetti
+        function createConfetti(count) {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#8B0000', '#B22222', '#FFD700', '#FFFFFF', '#000000'];
+            
+            for (let i = 0; i < count; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = `${Math.random() * 10 + 5}px`;
+                confetti.style.height = `${Math.random() * 10 + 5}px`;
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                
+                container.appendChild(confetti);
+                
+                // Animação
+                const animation = confetti.animate([
+                    { transform: `translateY(-100px) rotate(0deg)`, opacity: 1 },
+                    { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: Math.random() * 3000 + 2000,
+                    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+                });
+                
+                animation.onfinish = () => confetti.remove();
+            }
+        }
+
+        // Sistema de fogos de artifício
+        function createFireworks(count) {
+            const container = document.getElementById('confetti-container');
+            
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    firework.style.left = `${Math.random() * 80 + 10}vw`;
+                    firework.style.top = `${Math.random() * 50 + 25}vh`;
+                    firework.style.backgroundColor = Math.random() > 0.5 ? '#8B0000' : '#FFD700';
+                    
+                    container.appendChild(firework);
+                    
+                    // Animação do foguete subindo
+                    const rise = firework.animate([
+                        { transform: 'translateY(0) scale(1)', opacity: 1 },
+                        { transform: `translateY(-${Math.random() * 100 + 50}px) scale(0.5)`, opacity: 0.8 }
+                    ], {
+                        duration: 800,
+                        easing: 'ease-out'
+                    });
+                    
+                    rise.onfinish = () => {
+                        // Explosão
+                        firework.style.backgroundColor = 'transparent';
+                        firework.style.boxShadow = '0 0 20px 10px #8B0000';
+                        
+                        const explode = firework.animate([
+                            { transform: 'scale(0)', opacity: 1, boxShadow: '0 0 0 0 #8B0000' },
+                            { transform: 'scale(2)', opacity: 0, boxShadow: '0 0 40px 20px #FFD700' }
+                        ], {
+                            duration: 1000,
+                            easing: 'ease-out'
+                        });
+                        
+                        explode.onfinish = () => firework.remove();
+                        
+                        // Criar partículas da explosão
+                        for (let j = 0; j < 12; j++) {
+                            createConfetti(1);
+                        }
+                    };
+                }, i * 300);
+            }
+        }
+
+        // Criar alguns confetti iniciais
+        setTimeout(() => createConfetti(15), 1000);
+        
+        // Efeito de clique nos botões de plano
+        document.querySelectorAll('a[data-plan]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const plan = this.getAttribute('data-plan');
+                let planName = '';
+                
+                switch(plan) {
+                    case 'basico': planName = 'Reinício Essencial'; break;
+                    case 'transformacao': planName = 'Transformação Total'; break;
+                    case 'vip': planName = 'Mudança Radical VIP'; break;
+                }
+                
+                // Criar efeito visual
+                createConfetti(10);
+                
+                // Scroll suave para a seção de compra
+                e.preventDefault();
+                document.getElementById('comprar').scrollIntoView({ behavior: 'smooth' });
+                
+                // Mostrar mensagem (simulação de seleção de plano)
+                setTimeout(() => {
+                    alert(`Ótima escolha! O plano "${planName}" é perfeito para seu 2026. Agora complete sua compra abaixo. 🎉`);
+                }, 800);
+            });
+        });
+
+        // Efeito especial no botão principal de CTA
+        document.getElementById('mainCtaBtn').addEventListener('mouseenter', function() {
+            createConfetti(5);
+        });
+        
+        document.getElementById('finalCtaBtn').addEventListener('mouseenter', function() {
+            createConfetti(8);
+        });
+
+        // Inicializar barra de progresso
+        document.getElementById('progressFill').style.width = '64%';
+    </script>
+</body>  
+</html>
